@@ -28,7 +28,4 @@ jobs:
       run: mvn -B package --file e-shop-manager/pom.xml
     
     - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.COVERALLS_TOKEN }}
-        path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
+      run: cd e-shop-manager && mvn coveralls:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
