@@ -1,11 +1,11 @@
 # Target directory
-/target
+target/
 
 # MacOS directory
 *.DS_Store
 
 # IntelliJ file
-/.idea
+.idea/
 
 # Compiled class file
 *.class
