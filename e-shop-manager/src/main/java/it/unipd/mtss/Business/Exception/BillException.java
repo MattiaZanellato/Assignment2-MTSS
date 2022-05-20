@@ -5,9 +5,6 @@
 
 package it.unipd.mtss.Business.Exception;
 
-import java.util.List;
-
-
 public class BillException extends Exception{
 
     public BillException(String message) {
