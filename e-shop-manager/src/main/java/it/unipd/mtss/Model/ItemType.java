@@ -3,16 +3,11 @@
 // [Federico] [Marchi] [1224445]
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss;
+package it.unipd.mtss.Model;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+public enum ItemType {
+    Processor,
+    Motherboard,
+    Mouse,
+    Keyboard
 }

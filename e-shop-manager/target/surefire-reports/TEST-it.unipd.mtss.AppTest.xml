@@ -1,64 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.AppTest" time="0.183" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.AppTest" time="0.061" tests="1" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="sun.desktop" value="windows"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
-    <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="java.specification.version" value="1.8"/>
-    <property name="sun.cpu.isalist" value="amd64"/>
-    <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="c:\Users\Mattia\Desktop\Assignment2-MTSS\e-shop-manager\target\test-classes;c:\Users\Mattia\Desktop\Assignment2-MTSS\e-shop-manager\target\classes;C:\Users\Mattia\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\Mattia\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/test-classes:/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/classes:/Users/federicomarchi/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/federicomarchi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="user.timezone" value="Europe/Berlin"/>
-    <property name="java.vm.specification.version" value="1.8"/>
-    <property name="os.name" value="Windows 10"/>
-    <property name="user.country" value="IT"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\Mattia\AppData\Local\Temp\surefire289194144695122164\surefirebooter8050173278057459340.jar C:\Users\Mattia\AppData\Local\Temp\surefire289194144695122164 2022-05-20T11-20-01_210-jvmRun1 surefire2315959151695024698tmp surefire_07113664852604452527tmp"/>
-    <property name="surefire.test.class.path" value="c:\Users\Mattia\Desktop\Assignment2-MTSS\e-shop-manager\target\test-classes;c:\Users\Mattia\Desktop\Assignment2-MTSS\e-shop-manager\target\classes;C:\Users\Mattia\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\Mattia\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/surefire/surefirebooter14970992165191759166.jar /Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/surefire 2022-05-20T11-57-24_537-jvmRun1 surefire2856264166954211611tmp surefire_09469810330640339378tmp"/>
+    <property name="http.nonProxyHosts" value="localhost|*.localhost"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/test-classes:/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/classes:/Users/federicomarchi/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/federicomarchi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\Mattia"/>
-    <property name="user.language" value="it"/>
+    <property name="user.home" value="/Users/federicomarchi"/>
+    <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_202\jre"/>
-    <property name="basedir" value="c:\Users\Mattia\Desktop\Assignment2-MTSS\e-shop-manager"/>
-    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Mattia\AppData\Local\Temp\surefire289194144695122164\surefirebooter8050173278057459340.jar;C:\\Users\\Mattia\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.6\\org.jacoco.agent-0.8.6-runtime.jar"/>
-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_202\jre\classes"/>
-    <property name="user.script" value=""/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager/target/surefire/surefirebooter14970992165191759166.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="1.8.0_202-b08"/>
-    <property name="user.name" value="Mattia"/>
-    <property name="path.separator" value=";"/>
-    <property name="os.version" value="10.0"/>
-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\endorsed"/>
+    <property name="ftp.nonProxyHosts" value="localhost|*.localhost"/>
+    <property name="java.runtime.version" value="17.0.1+12-LTS-39"/>
+    <property name="user.name" value="federicomarchi"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="11.5"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="file.encoding" value="Cp1252"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="localRepository" value="C:\Users\Mattia\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="C:\Users\Mattia\AppData\Local\Temp\"/>
-    <property name="java.version" value="1.8.0_202"/>
-    <property name="user.dir" value="c:\Users\Mattia\Desktop\Assignment2-MTSS\e-shop-manager"/>
-    <property name="os.arch" value="amd64"/>
+    <property name="localRepository" value="/Users/federicomarchi/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/x6/vq2h54vs01sbnp9_x18k83p40000gn/T/"/>
+    <property name="java.version" value="17.0.1"/>
+    <property name="user.dir" value="/Users/federicomarchi/Desktop/Università/Assignment2-MTSS/e-shop-manager"/>
+    <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\TDM-GCC-64\bin;F:\Program Files (x86)\MinGW64\bin;F:\Program Files (x86)\PostgreSQL\13\lib;F:\Program Files (x86)\PostgreSQL\13\bin;F:\Program Files (x86)\Calibre2\;F:\Program Files (x86)\MATLAB\R2021a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;F:\Program Files (x86)\apache-maven-3.8.5\bin;C:\Program Files\Java\jdk-11.0.14\bin;F:\Program Files (x86)\nodejs\;&quot;C:\Users\Mattia\AppData\Local\Microsoft\WindowsApps;C:\TDM-GCC-64\bin&quot;;F:\Program Files\JetBrains\CLion 2019.3\bin;C:\Users\Mattia\AppData\Local\atom\bin;C:\Users\Mattia\AppData\Local\Microsoft\WindowsApps;F:\Program Files (x86)\texlive\2021\bin\win32;C:\Users\Mattia\AppData\Local\GitHubDesktop\bin;;F:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Mattia\AppData\Roaming\npm;."/>
-    <property name="java.vm.info" value="mixed mode"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/federicomarchi/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="25.202-b08"/>
-    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="52.0"/>
+    <property name="java.vm.version" value="17.0.1+12-LTS-39"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="localhost|*.localhost"/>
+    <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="it.unipd.mtss.AppTest" time="0.003"/>
+  <testcase name="shouldAnswerWithTrue" classname="it.unipd.mtss.AppTest" time="0.001"/>
 </testsuite>
