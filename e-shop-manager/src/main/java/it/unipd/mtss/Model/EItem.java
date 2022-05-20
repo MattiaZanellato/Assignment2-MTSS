@@ -5,14 +5,12 @@
 
 package it.unipd.mtss.Model;
 
-import it.unipd.mtss.Model.ItemType;
-
 public class EItem {
     private ItemType itemType;
     private String name;
     private double price;
 
-    public EItem(ItemType itemType, String name, double price ){
+    public EItem(ItemType itemType, String name, double price){
         this.itemType = itemType;
         this.name = name;
         this.price = price;
