@@ -27,5 +27,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file e-shop-manager/pom.xml
     
+    - name: JaCoCo
+      run: cd e-shop-manager && mvn test jacoco:report
+      
     - name: Coveralls
       run: cd e-shop-manager && mvn coveralls:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
