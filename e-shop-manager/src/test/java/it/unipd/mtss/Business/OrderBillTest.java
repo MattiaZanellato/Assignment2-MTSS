@@ -32,6 +32,11 @@ public class OrderBillTest {
         user = new User(1, new Date(05 / 05 / 2000), "Mario", "Rossi");
     }
 
+
+
+    /**
+     * Test function getOrderPrice()
+     */
     @Test
     public void testOrderPrice() throws BillException {
         list = Arrays.asList(
@@ -41,7 +46,7 @@ public class OrderBillTest {
                 new EItem(ItemType.Keyboard, "Keyboard1", 22.00),
                 new EItem(ItemType.Mouse, "Mouse2", 28.90),
                 new EItem(ItemType.Motherboard, "Motherboard2", 11.00),
-                new EItem(ItemType.Keyboard, "Keyboard2", 19.00));
+                new EItem(ItemType.Motherboard, "Motherboard2", 19.00));
         double sum = 13.00 + 9.40 + 34.00 + 22.00 + 28.90 + 11.00 + 19.00;
         double orderPrice = orderBill.getOrderPrice(list, user);
         assertEquals(sum, orderPrice, 0.001);
@@ -84,7 +89,41 @@ public class OrderBillTest {
     }
 
     @Test
-    public void testLessExpensiveItem(){
+    public void testEqualKeyboardsAndMouses() throws BillException {
+        list = Arrays.asList(
+                new EItem(ItemType.Keyboard, "Keyboard1", 22.60),
+                new EItem(ItemType.Keyboard, "Keyboard2", 19.20),
+                new EItem(ItemType.Keyboard, "Keyboard3", 21.10),
+                new EItem(ItemType.Mouse, "Mouse1", 33.00),
+                new EItem(ItemType.Mouse, "Mouse2", 41.40),
+                new EItem(ItemType.Mouse, "Mouse3", 34.00),
+                new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
+        double sum = 22.60 + 19.20 + 21.10 + 33.00 + 41.40 + 34.00 + (15.00 * 0);
+        double lessExp = orderBill.getOrderPrice(list, user);
+        assertEquals(sum, lessExp, 0.001);
+    }
+
+    @Test
+    public void testDifferentKeyboardsAndMouses()  throws BillException {
+        list = Arrays.asList(
+                new EItem(ItemType.Keyboard, "Keyboard1", 22.60),
+                new EItem(ItemType.Keyboard, "Keyboard2", 19.20),
+                new EItem(ItemType.Keyboard, "Keyboard3", 21.10),
+                new EItem(ItemType.Mouse, "Mouse1", 33.00),
+                new EItem(ItemType.Mouse, "Mouse2", 41.40),
+                new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
+        double sum = 22.60 + 19.20 + 21.10 + 33.00 + 41.40 + 15.00;
+        double lessExp = orderBill.getOrderPrice(list, user);
+        assertEquals(sum, lessExp, 0.001);
+    }
+
+
+
+    /**
+     * Test function getPriceOfLessExpensiveItem()
+     */
+    @Test
+    public void testLessExpensiveItem() {
         list = Arrays.asList(
                 new EItem(ItemType.Processor, "Processor1", 12.60),
                 new EItem(ItemType.Processor, "Processor2", 9.20),
@@ -96,7 +135,7 @@ public class OrderBillTest {
     }
 
     @Test
-    public void testLessExpensiveItemInListWithNotEnoughItem(){
+    public void testLessExpensiveItemInListWithNotEnoughItem() {
         list = Arrays.asList(
                 new EItem(ItemType.Processor, "Processor1", 12.60),
                 new EItem(ItemType.Processor, "Processor2", 9.20),
@@ -107,7 +146,7 @@ public class OrderBillTest {
     }
 
     @Test
-    public void testLessExpensiveItemWithDifferentType(){
+    public void testLessExpensiveItemWithDifferentType() {
         list = Arrays.asList(
                 new EItem(ItemType.Processor, "Processor1", 12.60),
                 new EItem(ItemType.Processor, "Processor2", 9.20),
@@ -115,6 +154,38 @@ public class OrderBillTest {
                 new EItem(ItemType.Processor, "Processor4", 21.80),
                 new EItem(ItemType.Processor, "Processor5", 23.80));
         double lessExp = orderBill.getPriceOfLessExpensiveItem(list, ItemType.Mouse, 5);
+        assertEquals(0, lessExp, 0.1);
+    }
+
+    
+
+    /**
+     * Test function getLessExpensiveItemWithEqualKeyboardsAndMouses()
+     */
+    @Test
+    public void testGetLessExpensiveItemWithEqualKeyboardsAndMouses() {
+        list = Arrays.asList(
+                new EItem(ItemType.Keyboard, "Keyboard1", 22.60),
+                new EItem(ItemType.Keyboard, "Keyboard2", 19.20),
+                new EItem(ItemType.Keyboard, "Keyboard3", 21.10),
+                new EItem(ItemType.Mouse, "Mouse1", 33.00),
+                new EItem(ItemType.Mouse, "Mouse2", 41.40),
+                new EItem(ItemType.Mouse, "Mouse3", 34.00),
+                new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
+        double lessExp = orderBill.getLessExpensiveItemWithEqualKeyboardsAndMouses(list);
+        assertEquals(15.00, lessExp, 0.001);
+    }
+
+    @Test
+    public void testGetLessExpensiveItemWithDifferentKeyboardsAndMouses() {
+        list = Arrays.asList(
+                new EItem(ItemType.Keyboard, "Keyboard1", 22.60),
+                new EItem(ItemType.Keyboard, "Keyboard2", 19.20),
+                new EItem(ItemType.Keyboard, "Keyboard3", 21.10),
+                new EItem(ItemType.Mouse, "Mouse1", 33.00),
+                new EItem(ItemType.Mouse, "Mouse2", 41.40),
+                new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
+        double lessExp = orderBill.getLessExpensiveItemWithEqualKeyboardsAndMouses(list);
         assertEquals(0, lessExp, 0.1);
     }
 }
