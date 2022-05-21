@@ -17,22 +17,38 @@ public class OrderBill implements Bill {
     @Override
     public double getOrderPrice(List<EItem> itemsOrdered, User user) throws BillException {
         double sum = 0;
-        int countP = 0;
-        double lessP = 0;
+        if(itemsOrdered.isEmpty()){
+            throw new BillException("Empty Bill");
+        }
+
+        //Funz1
         for (EItem item : itemsOrdered) {
             sum += item.getPrice();
-            if (item.getItemType() == ItemType.Processor) {
-                countP++;
-                if (lessP == 0 || lessP > item.getPrice()) {
-                    lessP = item.getPrice();
+        }
+
+        //Funz2
+        double processorPrice = getPriceOfLessExpensiveItem(itemsOrdered, ItemType.Processor, 5);
+
+        //Funz3
+        double mousePrice = getPriceOfLessExpensiveItem(itemsOrdered, ItemType.Mouse, 10);
+
+        return sum - processorPrice/2 - mousePrice;
+    }
+
+    public double getPriceOfLessExpensiveItem(List<EItem> itemsOrdered, ItemType type, int n){
+        int count = 0;
+        double lessExp = 0;
+        for (EItem item : itemsOrdered) {
+            if (item.getItemType() == type) {
+                count++;
+                if (lessExp == 0 || lessExp > item.getPrice()) {
+                    lessExp = item.getPrice();
                 }
             }
         }
-        if (countP >= 5) {
-            return sum-(lessP/2);
-        } else if (sum == 0) {
-            throw new BillException("Empty Bill");
+        if (count >= n) {
+            return lessExp;
         }
-        return sum;
+        return 0;
     }
 }
