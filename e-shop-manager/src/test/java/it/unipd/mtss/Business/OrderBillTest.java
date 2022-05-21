@@ -99,8 +99,8 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse3", 34.00),
                 new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
         double sum = 22.60 + 19.20 + 21.10 + 33.00 + 41.40 + 34.00 + (15.00 * 0);
-        double lessExp = orderBill.getOrderPrice(list, user);
-        assertEquals(sum, lessExp, 0.001);
+        double orderPrice = orderBill.getOrderPrice(list, user);
+        assertEquals(sum, orderPrice, 0.001);
     }
 
     @Test
@@ -113,10 +113,23 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse2", 41.40),
                 new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
         double sum = 22.60 + 19.20 + 21.10 + 33.00 + 41.40 + 15.00;
-        double lessExp = orderBill.getOrderPrice(list, user);
-        assertEquals(sum, lessExp, 0.001);
+        double orderPrice = orderBill.getOrderPrice(list, user);
+        assertEquals(sum, orderPrice, 0.001);
     }
 
+    @Test
+    public void testMoreThan1000EurosBill()  throws BillException {
+        list = Arrays.asList(
+                new EItem(ItemType.Keyboard, "Keyboard1", 150.60),
+                new EItem(ItemType.Keyboard, "Keyboard2", 220.20),
+                new EItem(ItemType.Keyboard, "Keyboard3", 110.10),
+                new EItem(ItemType.Mouse, "Mouse1", 260.00),
+                new EItem(ItemType.Mouse, "Mouse2", 250.40),
+                new EItem(ItemType.Motherboard, "Motherboard1", 180.00));
+        double sum = (150.60 + 220.20 + 110.10 + 260.00 + 250.40 + 180.00) - 117.13;
+        double orderPrice = orderBill.getOrderPrice(list, user);
+        assertEquals(sum, orderPrice, 0.001);
+    }
 
 
     /**

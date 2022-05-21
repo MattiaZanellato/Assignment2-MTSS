@@ -35,6 +35,11 @@ public class OrderBill implements Bill {
         // Funzionalità 4
         double lessExpPrice = getLessExpensiveItemWithEqualKeyboardsAndMouses(itemsOrdered);
 
+        // Funzionalità 5
+        if(sum > 1000){
+            return (sum - processorPrice/2 - mousePrice - lessExpPrice) * 9/10;
+        }
+
         return sum - processorPrice/2 - mousePrice - lessExpPrice;
     }
 
