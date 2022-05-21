@@ -104,7 +104,7 @@ public class OrderBillTest {
     }
 
     @Test
-    public void testDifferentKeyboardsAndMouses()  throws BillException {
+    public void testDifferentKeyboardsAndMouses() throws BillException {
         list = Arrays.asList(
                 new EItem(ItemType.Keyboard, "Keyboard1", 22.60),
                 new EItem(ItemType.Keyboard, "Keyboard2", 19.20),
@@ -118,7 +118,7 @@ public class OrderBillTest {
     }
 
     @Test
-    public void testMoreThan1000EurosBill()  throws BillException {
+    public void testMoreThan1000EurosBill() throws BillException {
         list = Arrays.asList(
                 new EItem(ItemType.Keyboard, "Keyboard1", 150.60),
                 new EItem(ItemType.Keyboard, "Keyboard2", 220.20),
@@ -130,6 +130,15 @@ public class OrderBillTest {
         double orderPrice = orderBill.getOrderPrice(list, user);
         assertEquals(sum, orderPrice, 0.001);
     }
+
+    @Test (expected = BillException.class)
+    public void testMoreThan30Items() throws BillException {
+        for (int i = 0; i < 31; i++) {
+            list.add(new EItem(ItemType.Keyboard, "Keyboard" + (i+1), 150.60));
+        }
+        double orderPrice = orderBill.getOrderPrice(list, user);
+    }
+
 
 
     /**

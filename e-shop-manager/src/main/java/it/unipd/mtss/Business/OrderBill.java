@@ -17,8 +17,14 @@ public class OrderBill implements Bill {
     @Override
     public double getOrderPrice(List<EItem> itemsOrdered, User user) throws BillException {
         double sum = 0;
+
         if(itemsOrdered.isEmpty()){
             throw new BillException("Empty Bill");
+        }
+
+        // Funzionalità 6
+        if (itemsOrdered.size() > 30) {
+            throw new BillException("More than 30 items");
         }
 
         // Funzionalità 1
@@ -36,7 +42,7 @@ public class OrderBill implements Bill {
         double lessExpPrice = getLessExpensiveItemWithEqualKeyboardsAndMouses(itemsOrdered);
 
         // Funzionalità 5
-        if(sum > 1000){
+        if (sum > 1000){
             return (sum - processorPrice/2 - mousePrice - lessExpPrice) * 9/10;
         }
 
