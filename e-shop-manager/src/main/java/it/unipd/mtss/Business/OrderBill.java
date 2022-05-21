@@ -21,21 +21,25 @@ public class OrderBill implements Bill {
             throw new BillException("Empty Bill");
         }
 
-        //Funz1
+        // Funzionalità 1
         for (EItem item : itemsOrdered) {
             sum += item.getPrice();
         }
 
-        //Funz2
+        // Funzionalità 2
         double processorPrice = getPriceOfLessExpensiveItem(itemsOrdered, ItemType.Processor, 5);
 
-        //Funz3
+        // Funzionalità 3
         double mousePrice = getPriceOfLessExpensiveItem(itemsOrdered, ItemType.Mouse, 10);
 
-        return sum - processorPrice/2 - mousePrice;
+        // Funzionalità 4
+        double lessExpPrice = getLessExpensiveItemWithEqualKeyboardsAndMouses(itemsOrdered);
+
+        return sum - processorPrice/2 - mousePrice - lessExpPrice;
     }
 
-    public double getPriceOfLessExpensiveItem(List<EItem> itemsOrdered, ItemType type, int n){
+    // Ritorna il prezzo dell'articolo del tipo specificato se il numero di item di quel tipo è maggiore o uguale a n
+    public double getPriceOfLessExpensiveItem(List<EItem> itemsOrdered, ItemType type, int n) {
         int count = 0;
         double lessExp = 0;
         for (EItem item : itemsOrdered) {
@@ -47,6 +51,27 @@ public class OrderBill implements Bill {
             }
         }
         if (count >= n) {
+            return lessExp;
+        }
+        return 0;
+    }
+
+    // Ritorna il prezzo dell'articolo meno caro se il numero di tastiere e mouse sono uguali
+    public double getLessExpensiveItemWithEqualKeyboardsAndMouses(List<EItem> itemsOrdered) {
+        int countK = 0;
+        int countM = 0;
+        double lessExp = 0;
+        for (EItem item : itemsOrdered) {
+            if (item.getItemType() == ItemType.Keyboard) {
+                countK++;
+            } else if (item.getItemType() == ItemType.Mouse) {
+                countM++;
+            }
+            if (lessExp == 0 || lessExp > item.getPrice()) {
+                lessExp = item.getPrice();
+            }
+        }
+        if (countK == countM && countK > 0) {
             return lessExp;
         }
         return 0;
