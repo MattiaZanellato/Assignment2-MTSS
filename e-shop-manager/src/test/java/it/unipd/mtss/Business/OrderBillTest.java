@@ -139,6 +139,15 @@ public class OrderBillTest {
         double orderPrice = orderBill.getOrderPrice(list, user);
     }
 
+    @Test
+    public void testLessThan10EurosBill() throws BillException {
+        list = Arrays.asList(
+                new EItem(ItemType.Keyboard, "Keyboard1", 5.50),
+                new EItem(ItemType.Keyboard, "Keyboard2", 3.30));
+        double sum = 5.50 + 3.30 + 2;
+        double orderPrice = orderBill.getOrderPrice(list, user);
+        assertEquals(sum, orderPrice, 0.001);
+    }
 
 
     /**
