@@ -5,15 +5,15 @@
 
 package it.unipd.mtss.Model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class User {
     private int id;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String name;
     private String surname;
 
-    public User(int id, Date birthDate, String name, String surname) {
+    public User(int id, LocalDate birthDate, String name, String surname) {
         this.id = id;
         this.birthDate = birthDate;
         this.name = name;
@@ -24,7 +24,7 @@ public class User {
         return id;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
