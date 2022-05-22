@@ -7,7 +7,7 @@ package it.unipd.mtss.Model;
 
 import static org.junit.Assert.assertEquals;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class UserTest {
 
     @Before
     public void setup() {
-        user = new User(1, new Date(05 / 05 / 2000), "Mario", "Rossi");
+        user = new User(1, LocalDate.parse("2000-05-05"), "Mario", "Rossi");
     }
     
     @Test
@@ -28,8 +28,8 @@ public class UserTest {
 
     @Test
     public void testGetDateUser() {
-        Date date = (Date)user.getBirthDate();
-        assertEquals(new Date(05 / 05 / 2000), date);
+        LocalDate date = user.getBirthDate();
+        assertEquals(LocalDate.parse("2000-05-05"), date);
     }
 
     @Test
