@@ -32,16 +32,6 @@ jobs:
       
     - name: Coveralls
       run: cd e-shop-manager && mvn coveralls:report --define repoToken=${{ secrets.COVERALLS_TOKEN }}
-    
-    - name: Badge creation and copy
-      run: cp e-shop-manager/target/site/badges/checkstyle-result.svg .github/badges/
-      
-    - name: Badge
-      uses: EndBug/add-and-commit@v7
-      with:
-        default_author: github_actions
-        message: 'added badge'
-        add: '*.svg'
       
     - name: Checkstyle
       run: cd e-shop-manager && mvn clean && mvn -B checkstyle:checkstyle
