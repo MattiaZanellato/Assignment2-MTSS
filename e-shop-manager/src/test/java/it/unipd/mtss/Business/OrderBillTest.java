@@ -46,7 +46,9 @@ public class OrderBillTest {
         String str = "2000-05-05 18:19";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+
         orderBill = new OrderBill(dateTime, user);
+
         assertEquals(dateTime, orderBill.getDateTime());
     }
 
@@ -58,6 +60,7 @@ public class OrderBillTest {
     @Test 
     public void testGetRemainedGifted() {
         orderBill.setRemainedGifted(5);
+
         assertEquals(5, orderBill.getRemainedGifted());
     }
 
@@ -69,12 +72,14 @@ public class OrderBillTest {
     @Test 
     public void testIsGiftedTrue() {
         orderBill.setGifted(true);
+
         assertEquals(true, orderBill.getGifted());
     }
 
     @Test 
     public void testIsGiftedFlase() {
         orderBill.setGifted(false);
+
         assertEquals(false, orderBill.getGifted());
     }
 
@@ -94,7 +99,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Motherboard, "Motherboard2", 11.00),
                 new EItem(ItemType.Motherboard, "Motherboard2", 19.00));
         double sum = 13.00 + 9.40 + 34.00 + 22.00 + 28.90 + 11.00 + 19.00;
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -112,7 +119,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Processor, "Processor4", 22.00),
                 new EItem(ItemType.Processor, "Processor5", 28.90));
         double sum = 13.00 + (9.40 / 2) + 34.00 + 22.00 + 28.90;
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -130,7 +139,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse9", 25.90),
                 new EItem(ItemType.Mouse, "Mouse10", 35.30));
         double sum = 13.00 + 16.40 + 34.00 + 22.00 + 28.90 + (11.30 * 0) + 31.20 + 22.00 + 25.90 + 35.30;
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -145,7 +156,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse3", 34.00),
                 new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
         double sum = 22.60 + 19.20 + 21.10 + 33.00 + 41.40 + 34.00 + (15.00 * 0);
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -159,7 +172,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse2", 41.40),
                 new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
         double sum = 22.60 + 19.20 + 21.10 + 33.00 + 41.40 + 15.00;
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -173,7 +188,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse2", 250.40),
                 new EItem(ItemType.Motherboard, "Motherboard1", 180.00));
         double sum = (150.60 + 220.20 + 110.10 + 260.00 + 250.40 + 180.00) - 117.13;
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -182,6 +199,7 @@ public class OrderBillTest {
         for (int i = 0; i < 31; i++) {
             list.add(new EItem(ItemType.Keyboard, "Keyboard" + (i + 1), 150.60));
         }
+
         double orderPrice = orderBill.getOrderPrice(list, user);
     }
 
@@ -191,7 +209,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Keyboard, "Keyboard1", 5.50),
                 new EItem(ItemType.Keyboard, "Keyboard2", 3.30));
         double sum = 5.50 + 3.30 + 2;
+
         double orderPrice = orderBill.getOrderPrice(list, user);
+
         assertEquals(sum, orderPrice, 0.001);
     }
 
@@ -208,6 +228,7 @@ public class OrderBillTest {
         User user;
         OrderBill order;
         int count = 0;
+
         for (int i = 0; i < 100; i++) {
             user = new User(i, LocalDate.parse("2006-05-05"), "Mario" + i, "Rossi" + i);
             String str = "2000-05-05 18:19";
@@ -218,7 +239,7 @@ public class OrderBillTest {
                 count++;
             }
         }
-        System.out.println(count);
+
         assert count <= 10;
     }
 
@@ -233,7 +254,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Processor, "Processor3", 31.10),
                 new EItem(ItemType.Processor, "Processor4", 21.80),
                 new EItem(ItemType.Processor, "Processor5", 23.80));
+
         double lessExp = orderBill.getPriceOfLessExpensiveItem(list, ItemType.Processor, 5);
+
         assertEquals(9.20, lessExp, 0.001);
     }
 
@@ -244,7 +267,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Processor, "Processor2", 9.20),
                 new EItem(ItemType.Processor, "Processor3", 31.10),
                 new EItem(ItemType.Processor, "Processor4", 21.80));
+
         double lessExp = orderBill.getPriceOfLessExpensiveItem(list, ItemType.Processor, 5);
+
         assertEquals(0, lessExp, 0.1);
     }
 
@@ -256,7 +281,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Processor, "Processor3", 31.10),
                 new EItem(ItemType.Processor, "Processor4", 21.80),
                 new EItem(ItemType.Processor, "Processor5", 23.80));
+
         double lessExp = orderBill.getPriceOfLessExpensiveItem(list, ItemType.Mouse, 5);
+
         assertEquals(0, lessExp, 0.1);
     }
 
@@ -273,7 +300,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse2", 41.40),
                 new EItem(ItemType.Mouse, "Mouse3", 34.00),
                 new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
+
         double lessExp = orderBill.getLessExpensiveItemWithEqualKeyboardsAndMouses(list);
+
         assertEquals(15.00, lessExp, 0.001);
     }
 
@@ -286,7 +315,9 @@ public class OrderBillTest {
                 new EItem(ItemType.Mouse, "Mouse1", 33.00),
                 new EItem(ItemType.Mouse, "Mouse2", 41.40),
                 new EItem(ItemType.Motherboard, "Motherboard1", 15.00));
+
         double lessExp = orderBill.getLessExpensiveItemWithEqualKeyboardsAndMouses(list);
+
         assertEquals(0, lessExp, 0.1);
     }
 
@@ -298,7 +329,9 @@ public class OrderBillTest {
     @Test
     public void testOrderIsGiftedTrue() {
         user = new User(1, LocalDate.parse("2006-05-05"), "Mario", "Rossi");
+
         boolean verify = orderBill.isGifted(user, 0);
+
         assertEquals(true, verify);
     }
 
@@ -309,21 +342,27 @@ public class OrderBillTest {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
         orderBill = new OrderBill(dateTime, user);
+
         boolean verify = orderBill.isGifted(user, 0);
+
         assertEquals(false, verify);
     }
 
     @Test
     public void testOrderIsGiftedFalseForBirthDate() {
         user = new User(1, LocalDate.parse("2000-05-05"), "Mario", "Rossi");
+
         boolean verify = orderBill.isGifted(user, 0);
+
         assertEquals(false, verify);
     }
 
     @Test
     public void testOrderIsGiftedFalseForRandomProbabilityOfGift() {
         user = new User(1, LocalDate.parse("2006-05-05"), "Mario", "Rossi");
+
         boolean verify = orderBill.isGifted(user, 5);
+
         assertEquals(false, verify);
     }
 
@@ -331,7 +370,9 @@ public class OrderBillTest {
     public void testOrderIsGiftedFalseForProbabilityOfGift() {
         user = new User(1, LocalDate.parse("2006-05-05"), "Mario", "Rossi");
         orderBill.setRemainedGifted(0);
+
         boolean verify = orderBill.isGifted(user, 0);
+
         assertEquals(false, verify);
     }
 }

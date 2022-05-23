@@ -21,18 +21,21 @@ public class EItemTest {
     @Test
     public void testGetItemTypeEItem() {
         ItemType itemType = item.getItemType();
+
         assertEquals(ItemType.Mouse, itemType);
     }
 
     @Test
     public void testGetNameEItem() {
         String name = item.getName();
+
         assertEquals("Mouse1", name);
     }
 
     @Test
     public void testGetPriceEItem() {
         double price = item.getPrice();
+
         assertEquals(13.00, price, 0.001);
     }
 }

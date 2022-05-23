@@ -23,24 +23,28 @@ public class UserTest {
     @Test
     public void testGetIdUser() {
         int id = user.getId();
+
         assertEquals(1, id);
     }
 
     @Test
     public void testGetDateUser() {
         LocalDate date = user.getBirthDate();
+
         assertEquals(LocalDate.parse("2000-05-05"), date);
     }
 
     @Test
     public void testGetNameUser() {
         String name = user.getName();
+
         assertEquals("Mario", name);
     }
 
     @Test
     public void testGetSurnameUser() {
         String surname = user.getSurname();
+
         assertEquals("Rossi", surname);
     }
 }
